@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python API Sunucusunu Başlat",
+      "type": "shell",
+      "command": "${workspaceFolder}/sunucuyu_baslat.ps1",
+      "presentation": {
+        "panel": "new",
+        "clear": true
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    }
+  ]
+}

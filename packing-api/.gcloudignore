@@ -1,0 +1,34 @@
+# .gcloudignore
+
+# Python API'si ile ilgisi olmayan HER ŞEYİ yok say
+.dart_tool/
+.idea/
+.vscode/
+build/
+android/
+ios/
+lib/
+linux/
+macos/
+test/
+windows/
+web/
+
+# Gereksiz dosyalar
+*.iml
+*.yaml
+*.md
+check_environment.py
+packer_ORIJINAL_BACKUP.py
+
+# Git dosyaları
+.git
+.gitignore
+
+# YÜKLENMESİ GEREKENLER (Bunları asla yok sayma!)
+# Bu satırlar, yukarıdaki kurallara rağmen
+# bu dosyaların HER ZAMAN yüklenmesini sağlar.
+!app/
+!app/**
+!Dockerfile
+!requirements.txt

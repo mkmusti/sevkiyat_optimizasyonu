@@ -1,0 +1,38 @@
+# Dart/Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+
+# Android Gradle
+/.gradle
+.cxx/
+
+# Android (Kullanıcı Tarafından Eklenenler)
+/captures/
+GeneratedPluginRegistrant.java
+
+# IDE dosyaları
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# OS-spesifik
+.DS_Store
+thumbs.db
+
+# Log dosyaları
+*.log
+
+# Hassas yapılandırma dosyaları (API Anahtarları ve Hizmetler)
+# Bu dosyaları asla Git'e yüklemeyin!
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Yerel özellikler ve İmza Anahtarları
+/local.properties
+key.properties
+**/*.keystore
+**/*.jks

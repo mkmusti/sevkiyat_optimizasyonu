@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "547787121667",
+    "project_id": "sevkiyat-optimizasyon-api",
+    "storage_bucket": "sevkiyat-optimizasyon-api.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547787121667:android:c3bfb62a9207f2c6711a36",
+        "android_client_info": {
+          "package_name": "com.karaosman.sevkiyat_optimizasyonu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547787121667-ei2s8nc7v3t5ons4un050fkhh8hm5atm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1PTV4i-J2R9y0Rv4zP8VdDt1dje_vAcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547787121667-ei2s8nc7v3t5ons4un050fkhh8hm5atm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "547787121667-rca7sdao39in0lta7f0cmnck06cbne7p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.karaosman.sevkiyatOptimizasyonu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

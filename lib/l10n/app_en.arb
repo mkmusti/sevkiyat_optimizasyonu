@@ -1,0 +1,7 @@
+{
+    "@@locale": "en",
+    "appTitle": "Shipment Optimization",
+    "welcomeMessage": "Welcome, {userName}",
+    "dragToRotate": "Drag to rotate the 3D layout",
+    "truckLayout3D": "3D Truck Layout"
+}

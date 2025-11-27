@@ -1,0 +1,10 @@
+# Çeviri dosyalarının (.arb) bulunduğu dizin
+arb-dir: lib/l10n
+
+# Varsayılan (şablon) dil dosyanızın adı. 
+# Diğer dillerde eksik bir çeviri olursa bu dosyadaki metin kullanılır.
+template-arb-file: app_en.arb
+
+# Flutter'ın otomatik olarak oluşturacağı ve bizim kullanacağımız 
+# Dart sınıfının dosya adı.
+output-localization-file: app_localizations.dart

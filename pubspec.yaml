@@ -1,0 +1,60 @@
+name: sevkiyat_optimizasyonu
+description: 3D Sevkiyat Optimizasyon Uygulaması
+publish_to: 'none'
+
+version: 1.0.0+2 # 2 Yüklendi Sıradaki yükleme 3 olacak..
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # --- TEMEL PAKETLER (En son sürüme güncellendi) ---
+  provider: ^6.1.5+1
+  collection: ^1.19.1
+  http: ^1.6.0 # Mevcut dosyanızda 1.2.1 görünse de, kilitte 1.6.0 var, en son kullanılabilir 1.6.0
+
+  # --- FIREBASE (KRİTİK GÜNCELLEME - En son kullanılabilir sürümlere çekildi) ---
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
+
+  # --- PLATFORM & VERİTABANI (En son kullanılabilir sürümlere çekildi) ---
+  webview_windows: ^0.4.0
+  webview_flutter: ^4.7.0 # Liste 4.13.0 ve 4.7.0'ın üstünü gösteriyor. Sürüm kısıtlamalarına göre 4.7.0'a çekildi.
+  sqflite_common_ffi: ^2.4.0
+  sqflite: ^2.4.2
+  sqlite3: ^3.0.1
+  path: ^1.9.1
+  shared_preferences: ^2.5.3
+  url_launcher: ^6.3.2
+  package_info_plus: ^9.0.0 # Mevcut 8.3.1, en son 9.0.0
+  cupertino_icons: ^1.0.8
+
+  google_mobile_ads: ^6.0.0 # Güncel kalıyor
+
+  # --- LOKALİZASYON ---
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0 # Mevcut 3.0.2, en son 6.0.0
+  flutter_launcher_icons: ^0.14.4 # Mevcut 0.13.1, en son 0.14.4
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/icon/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  min_sdk_android: 21

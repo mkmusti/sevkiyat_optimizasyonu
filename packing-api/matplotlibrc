@@ -1,0 +1,6 @@
+# Bu dosyanın adı: matplotlibrc
+
+# matplotlib'e bir ekran (GUI) aramaması,
+# bunun yerine "Agg" backend'ini (PNG gibi dosyalara yazmak için)
+# kullanması söyleniyor.
+backend: Agg

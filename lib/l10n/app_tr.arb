@@ -1,0 +1,7 @@
+{
+    "@@locale": "tr",
+    "appTitle": "Sevkiyat Optimizasyon",
+    "welcomeMessage": "Hoş geldin, {userName}",
+    "dragToRotate": "3D yerleşimi döndürmek için sürükleyin",
+    "truckLayout3D": "3D Tır Yerleşimi"
+}
