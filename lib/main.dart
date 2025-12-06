@@ -13,12 +13,12 @@ import 'firebase_options.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'services/in_app_purchase_service.dart'; // ⬅️ YENİ EKLENDİ
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // --- KRİTİK DÜZELTME: REKLAMLARI SADECE MOBİLDE BAŞLAT ---
-  // (Android'de yayınlayacağımız için bu gereklidir)
   if (Platform.isAndroid || Platform.isIOS) {
     await MobileAds.instance.initialize();
   }
@@ -44,6 +44,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => AracServisi()),
         ChangeNotifierProvider(create: (context) => UserService()),
         ChangeNotifierProvider(create: (context) => AdManager()),
+        ChangeNotifierProvider(create: (context) => InAppPurchaseService()), // ⬅️ YENİ EKLENDİ
       ],
       child: const MyApp(),
     ),
