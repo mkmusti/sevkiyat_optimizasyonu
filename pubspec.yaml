@@ -2,7 +2,7 @@ name: sevkiyat_optimizasyonu
 description: 3D Sevkiyat Optimizasyon Uygulaması
 publish_to: 'none'
 
-version: 1.0.0+2 # 2 Yüklendi Sıradaki yükleme 3 olacak..
+version: 2.0.0+6 # 6 Yüklendi Sıradaki yükleme 7 olacak..
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

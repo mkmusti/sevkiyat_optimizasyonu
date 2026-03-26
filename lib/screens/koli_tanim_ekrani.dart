@@ -1,4 +1,4 @@
-// lib/screens/koli_tanim_ekrani.dart
+// lib/screens/koli_tanimi_ekrani.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/koli_model.dart';
@@ -14,6 +14,10 @@ class KoliTanimEkrani extends StatefulWidget {
 }
 
 class _KoliTanimEkraniState extends State<KoliTanimEkrani> {
+  // Banner reklam yüksekliği (AdMob standart banner: 50-60px)
+  static const double _bannerHeight = 60.0;
+  static const double _fabBottomPadding = 16.0;
+
   void _yeniKoliEkle() async {
     final yeniKoli = await Navigator.push<KoliModel>(
       context,
@@ -24,7 +28,9 @@ class _KoliTanimEkraniState extends State<KoliTanimEkrani> {
     );
 
     if (yeniKoli != null) {
-      await Provider.of<KoliServisi>(context, listen: false).koliEkle(yeniKoli);
+      if (mounted) {
+        await Provider.of<KoliServisi>(context, listen: false).koliEkle(yeniKoli);
+      }
     }
   }
 
@@ -38,7 +44,9 @@ class _KoliTanimEkraniState extends State<KoliTanimEkrani> {
     );
 
     if (guncellenmisKoli != null) {
-      await Provider.of<KoliServisi>(context, listen: false).koliGuncelle(eskiKoli.id, guncellenmisKoli);
+      if (mounted) {
+        await Provider.of<KoliServisi>(context, listen: false).koliGuncelle(eskiKoli.id, guncellenmisKoli);
+      }
     }
   }
 
@@ -98,7 +106,7 @@ class _KoliTanimEkraniState extends State<KoliTanimEkrani> {
                 final koliListesi = koliServisi.koliler;
 
                 if (koliListesi.isEmpty) {
-                  return Center(
+                  return const Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -106,12 +114,12 @@ class _KoliTanimEkraniState extends State<KoliTanimEkrani> {
                         SizedBox(height: 16),
                         Text(
                           "Henüz koli tanımı eklenmemiş.",
-                          style: Theme.of(context).textTheme.headlineSmall,
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 8),
                         Text(
                           "Başlamak için (+) butonuna dokunun.",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
@@ -119,11 +127,18 @@ class _KoliTanimEkraniState extends State<KoliTanimEkrani> {
                 }
 
                 return ListView.builder(
+                  // ListView'e alt padding ekleyerek içeriğin FAB'ın altında kalmamasını sağlıyoruz
+                  padding: EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                    top: 5,
+                    bottom: _bannerHeight + 80, // Banner + FAB için alan
+                  ),
                   itemCount: koliListesi.length,
                   itemBuilder: (context, index) {
                     final koli = koliListesi[index];
                     return Card(
-                      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
                       child: ListTile(
                         leading: CircleAvatar(
                           backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
@@ -154,13 +169,17 @@ class _KoliTanimEkraniState extends State<KoliTanimEkrani> {
           ),
 
           // ALT KISIMDA BANNER REKLAM
-          const BannerReklamWidget(),
+          // const BannerReklamWidget(), //reklam için bu satırın remarkını aç.
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _yeniKoliEkle,
-        tooltip: 'Yeni Koli Ekle',
-        child: const Icon(Icons.add),
+      // FAB'ı banner reklamın üzerine binmeyecek şekilde konumlandırma
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: _bannerHeight + _fabBottomPadding),
+        child: FloatingActionButton(
+          onPressed: _yeniKoliEkle,
+          tooltip: 'Yeni Koli Ekle',
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

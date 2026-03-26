@@ -14,6 +14,10 @@ class AracTanimEkrani extends StatefulWidget {
 }
 
 class _AracTanimEkraniState extends State<AracTanimEkrani> {
+  // Banner reklam yüksekliği (AdMob standart banner: 50-60px)
+  static const double _bannerHeight = 60.0;
+  static const double _fabBottomPadding = 16.0;
+
   void _yeniAracEkle() async {
     final yeniArac = await Navigator.push<AracModel>(
       context,
@@ -102,16 +106,16 @@ class _AracTanimEkraniState extends State<AracTanimEkrani> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.local_shipping_outlined, size: 80, color: Colors.grey),
-                        SizedBox(height: 16),
+                        const Icon(Icons.local_shipping_outlined, size: 80, color: Colors.grey),
+                        const SizedBox(height: 16),
                         Text(
                           "Henüz araç tanımı eklenmemiş.",
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Text(
                           "Başlamak için (+) butonuna dokunun.",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
@@ -119,11 +123,18 @@ class _AracTanimEkraniState extends State<AracTanimEkrani> {
                 }
 
                 return ListView.builder(
+                  // ListView'e alt padding ekleyerek içeriğin FAB'ın altında kalmamasını sağlıyoruz
+                  padding: EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                    top: 5,
+                    bottom: _bannerHeight + 80, // Banner + FAB için alan
+                  ),
                   itemCount: aracListesi.length,
                   itemBuilder: (context, index) {
                     final arac = aracListesi[index];
                     return Card(
-                      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
                       child: ListTile(
                         leading: CircleAvatar(
                           backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
@@ -154,13 +165,17 @@ class _AracTanimEkraniState extends State<AracTanimEkrani> {
           ),
 
           // ALT KISIMDA BANNER REKLAM
-          const BannerReklamWidget(),
+          // const BannerReklamWidget(), //reklam için bu satırın remarklarını aç
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _yeniAracEkle,
-        tooltip: 'Yeni Araç Ekle',
-        child: const Icon(Icons.add),
+      // FAB'ı banner reklamın üzerine binmeyecek şekilde konumlandırma
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: _bannerHeight + _fabBottomPadding),
+        child: FloatingActionButton(
+          onPressed: _yeniAracEkle,
+          tooltip: 'Yeni Araç Ekle',
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
